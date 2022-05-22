@@ -1,0 +1,97 @@
+<col:collection xmlns="http://cnx.rice.edu/collxml" xmlns:md="http://cnx.rice.edu/mdml" xmlns:col="http://cnx.rice.edu/collxml" xml:lang="en">
+  <metadata xmlns:md="http://cnx.rice.edu/mdml" mdml-version="0.5">
+    <md:content-id>col10631</md:content-id>
+    <md:title>Communication Systems</md:title>
+    <md:language>en</md:language>
+    <md:license url="http://creativecommons.org/licenses/by/2.0/">Creative Commons Attribution License</md:license>
+    <md:uuid>400dd943-25bd-49fb-a422-933c0a67d4e4</md:uuid>
+<md:slug>communication-systems</md:slug>
+</metadata>
+  <col:content>
+    <col:subcollection>
+      <md:title>Signals and Systems in Communications</md:title>
+      <col:content>
+        <col:subcollection>
+          <md:title>Signals</md:title>
+          <col:content>
+            <col:module document="m10057"/>
+            <col:module document="m10125"/>
+            <col:module document="m10058"/>
+            <col:module document="m10059"/>
+            <col:module document="m10060"/>
+            <col:module document="m0009"/>
+          </col:content>
+        </col:subcollection>
+        <col:subcollection>
+          <md:title>Systems</md:title>
+          <col:content>
+            <col:module document="m10084"/>
+            <col:module document="m2102"/>
+          </col:content>
+        </col:subcollection>
+        <col:subcollection>
+          <md:title>Time Domain Analysis of Continuous Time Systems</md:title>
+          <col:content>
+            <col:module document="m10085"/>
+            <col:module document="m10088"/>
+          </col:content>
+        </col:subcollection>
+        <col:subcollection>
+          <md:title>Frequency Domain</md:title>
+          <col:content>
+            <col:module document="m0038"/>
+            <col:module document="m0042"/>
+            <col:module document="m0039"/>
+            <col:module document="m0040"/>
+            <col:module document="m10687"/>
+            <col:module document="m0043"/>
+            <col:module document="m0044"/>
+            <col:module document="m0046"/>
+            <col:module document="m0048"/>
+            <col:module document="m10350"/>
+          </col:content>
+        </col:subcollection>
+        <col:subcollection>
+          <md:title>Continuous Time Fourier Transform (CTFT)</md:title>
+          <col:content>
+            <col:module document="m10098"/>
+            <col:module document="m10100"/>
+          </col:content>
+        </col:subcollection>
+        <col:subcollection>
+          <md:title>Sampling theory</md:title>
+          <col:content>
+            <col:module document="m11419"/>
+            <col:module document="m11423"/>
+            <col:module document="m11443"/>
+            <col:module document="m11465"/>
+            <col:module document="m10994"/>
+          </col:content>
+        </col:subcollection>
+        <col:subcollection>
+          <md:title>Time Domain Analysis of Discrete Time Systems</md:title>
+          <col:content>
+            <col:module document="m10251"/>
+            <col:module document="m10087"/>
+            <col:module document="m10786"/>
+          </col:content>
+        </col:subcollection>
+        <col:subcollection>
+          <md:title>Discrete Time Fourier Transform (DTFT)</md:title>
+          <col:content>
+            <col:module document="m10108"/>
+            <col:module document="m0506"/>
+            <col:module document="m0525"/>
+            <col:module document="m0524"/>
+            <col:module document="m10421"/>
+            <col:module document="m10249"/>
+            <col:module document="m10099"/>
+            <col:module document="m12325"/>
+            <col:module document="m12326"/>
+          </col:content>
+        </col:subcollection>
+        <col:module document="m13753"/>
+      </col:content>
+    </col:subcollection>
+  </col:content>
+</col:collection>

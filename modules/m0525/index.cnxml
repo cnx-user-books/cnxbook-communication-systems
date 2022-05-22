@@ -1,0 +1,722 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML">
+
+  <title>Discrete Time Fourier Transform Pair</title>
+
+  <metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m0525</md:content-id>
+  <md:title>Discrete Time Fourier Transform Pair</md:title>
+  <md:abstract>Computing discrete-time frequencies by the use of Fourier transforms.</md:abstract>
+  <md:uuid>8a69f2dd-d7fd-4ced-9330-9fe608088082</md:uuid>
+</metadata>
+
+<content>
+
+    <para id="p1">
+      When we obtain the discrete-time signal via sampling an analog
+      signal, the Nyquist frequency corresponds to the discrete-time
+      frequency
+      <m:math>
+	<m:apply>
+	  <m:divide/>
+	  <m:cn>1</m:cn>
+	  <m:cn>2</m:cn>
+	</m:apply>
+      </m:math>
+      .  To show this, note that a sinusoid at the Nyquist frequency
+      <m:math>
+	<m:apply>
+	  <m:divide/>
+	  <m:cn>1</m:cn>
+	  <m:apply>
+	    <m:times/>
+	    <m:cn>2</m:cn>
+	    <m:ci><m:msub>
+		<m:mi>T</m:mi>
+		<m:mi>s</m:mi>
+	      </m:msub></m:ci>
+	  </m:apply>
+	</m:apply>
+      </m:math> 
+      has a sampled waveform that equals
+
+      <equation id="eqn0002">
+	<title>Sinusoid at Nyquist Frequency 1/2T</title>
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:cos/>
+	      <m:apply>
+		<m:times/>
+		<m:cn>2</m:cn>
+		<m:pi/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>2</m:cn>
+		    <m:ci><m:msub>
+			<m:mi>T</m:mi>
+			<m:mi>s</m:mi>
+		      </m:msub></m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:ci>n</m:ci>
+		<m:ci><m:msub>
+		    <m:mi>T</m:mi>
+		    <m:mi>s</m:mi>
+		  </m:msub></m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:cos/>
+	      <m:apply>
+		<m:times/>
+		<m:pi/>
+		<m:ci>n</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:power/>
+	      <m:apply>
+		<m:minus/>
+		<m:cn>1</m:cn>
+	      </m:apply>
+	      <m:ci>n</m:ci>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+    </para>
+
+    <para id="p2">
+      The exponential in the DTFT at frequency 
+      <m:math>
+	<m:apply>
+	  <m:divide/>
+	  <m:cn>1</m:cn>
+	  <m:cn>2</m:cn>
+	</m:apply>
+      </m:math> 
+      equals 
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+	  <m:apply>
+	    <m:exp/>
+	    <m:apply>
+	      <m:divide/>
+	      <m:apply>
+		<m:minus/>
+		<m:apply>
+		  <m:times/>
+		  <m:imaginaryi/>
+		  <m:cn>2</m:cn>
+		  <m:pi/>
+		  <m:ci>n</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:cn>2</m:cn>
+	    </m:apply>
+	  </m:apply>
+	  <m:apply>
+	    <m:exp/>
+	    <m:apply>
+	      <m:minus/>
+	      <m:apply>
+		<m:times/>
+		<m:imaginaryi/>
+		<m:pi/>
+		<m:ci>n</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	  <m:apply>
+	    <m:power/>
+	    <m:apply>
+	      <m:minus/>
+	      <m:cn>1</m:cn>
+	    </m:apply>
+	    <m:ci>n</m:ci>
+	  </m:apply>
+	</m:apply>
+      </m:math>
+      , meaning that the correspondence between analog and
+      discrete-time frequency is established:
+
+      <equation id="eqn0003">
+	<title>Analog, Discrete-Time Frequency Relationship</title>
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>
+	    <m:msub>
+		<m:mi>f</m:mi>
+		<m:mi>D</m:mi>
+	      </m:msub>
+	    </m:ci>
+	    <m:apply>
+	      <m:times/>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>f</m:mi>
+		  <m:mi>A</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>
+		<m:msub>
+		  <m:mi>T</m:mi>
+		  <m:mi>s</m:mi>
+		</m:msub>
+	      </m:ci>
+	    </m:apply>
+	  </m:apply>    
+	</m:math> 
+      </equation>
+    </para>
+
+    <para id="p3">
+      where 
+      <m:math>
+	<m:ci>
+	  <m:msub>
+	    <m:mi>f</m:mi>
+	    <m:mi>D</m:mi>
+	  </m:msub>
+	</m:ci>
+      </m:math> 
+      and 
+      <m:math>
+	<m:ci>
+	  <m:msub>
+	    <m:mi>f</m:mi>
+	    <m:mi>A</m:mi>
+	  </m:msub>
+	</m:ci>
+      </m:math> represent discrete-time and analog frequency
+      variables, respectively.  The <link document="m0050" target-id="alias" strength="3">aliasing figure</link> provides
+      another way of deriving this result.  As the duration of each
+      pulse in the periodic sampling signal
+      <m:math>
+	<m:apply>
+	  <m:ci type="fn">
+	    <m:msub>
+	      <m:mi>p</m:mi>
+	      <m:msub>
+		<m:mi>T</m:mi>
+		<m:mi>s</m:mi>
+	      </m:msub>
+	    </m:msub>
+	  </m:ci>
+	  <m:ci>t</m:ci>
+	</m:apply>
+      </m:math> narrows, the amplitudes of the signal's spectral
+      repetitions, which are governed by the <link document="m0050" target-id="pulse" strength="3">Fourier series coefficients</link>
+      of
+      <m:math>
+	<m:apply>
+	  <m:ci type="fn">
+	    <m:msub>
+	      <m:mi>p</m:mi>
+	      <m:msub>
+		<m:mi>T</m:mi>
+		<m:mi>s</m:mi>
+	      </m:msub>
+	    </m:msub>
+	  </m:ci>
+	  <m:ci>t</m:ci>
+	</m:apply>
+      </m:math>
+      , become increasingly equal.  
+      <footnote id="id1165213115513">
+	Examination of the <link document="m0050" target-id="pulse" strength="3">periodic pulse signal</link> reveals that as
+      <m:math>
+	<m:ci>Δ</m:ci>
+      </m:math> 
+      decreases, the value of
+      <m:math>
+	<m:ci>
+	  <m:msub>
+	    <m:mi>c</m:mi>
+	    <m:mn>0</m:mn>
+	  </m:msub>
+	</m:ci>
+      </m:math>
+      , the largest Fourier coefficient, decreases to zero: 
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+	  <m:apply>
+	    <m:abs/>
+	    <m:ci>
+	      <m:msub>
+		<m:mi>c</m:mi>
+		<m:mn>0</m:mn>
+	      </m:msub>
+	    </m:ci>
+	  </m:apply>
+	  <m:apply>
+	    <m:divide/>
+	    <m:apply>
+	      <m:times/>
+	      <m:ci>A</m:ci>
+	      <m:ci>Δ</m:ci>
+	    </m:apply>
+	    <m:ci>T</m:ci>
+	  </m:apply>
+	</m:apply>
+      </m:math>
+      .  Thus, to maintain a mathematically viable Sampling Theorem,
+      the amplitude
+      <m:math>
+	<m:ci>A</m:ci>
+      </m:math> 
+      must increase as 
+      <m:math>
+	<m:apply>
+	  <m:divide/>
+	  <m:cn>1</m:cn>
+	  <m:ci>Δ</m:ci>
+	</m:apply>
+      </m:math>
+      , becoming infinitely large as the pulse duration decreases.
+      Practical systems use a small value of
+      <m:math>
+	<m:ci>Δ</m:ci>
+      </m:math>
+      , say 
+      <m:math>
+	<m:apply>
+	  <m:times/>
+	  <m:cn>0.1</m:cn>
+	  <m:ci><m:msub>
+	      <m:mi>T</m:mi>
+	      <m:mi>s</m:mi>
+	    </m:msub></m:ci>
+	</m:apply>
+      </m:math> and use amplifiers to rescale the signal.
+      </footnote>
+
+      Thus, the sampled signal's spectrum becomes periodic with period
+      <m:math>
+	<m:apply>
+	  <m:divide/>
+	  <m:cn>1</m:cn>
+	  <m:apply>
+	    <m:times/>
+	    <m:ci><m:msub>
+		<m:mi>T</m:mi>
+		<m:mi>s</m:mi>
+	      </m:msub></m:ci>
+	  </m:apply>
+	</m:apply>
+      </m:math>
+      . Thus, the Nyquist frequency 
+      <m:math>
+	<m:apply>
+	  <m:divide/>
+	  <m:cn>1</m:cn>
+	  <m:apply>
+	    <m:times/>
+	    <m:cn>2</m:cn>
+	    <m:ci><m:msub>
+		<m:mi>T</m:mi>
+		<m:mi>s</m:mi>
+	      </m:msub></m:ci>
+	  </m:apply>
+	</m:apply>
+      </m:math>
+      corresponds to the frequency 
+      <m:math>
+	<m:apply>
+	  <m:divide/>
+	  <m:cn>1</m:cn>
+	  <m:cn>2</m:cn>
+	</m:apply>
+      </m:math>
+      .
+    </para>
+
+    <para id="p4">
+      The inverse discrete-time Fourier transform is easily derived
+      from the following relationship:
+
+    <equation id="eqn0012">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:int/>
+	      <m:uplimit>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:cn>2</m:cn>
+		</m:apply>
+	      </m:uplimit>
+	      <m:lowlimit>
+		<m:apply>
+		  <m:minus/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		</m:apply>
+	      </m:lowlimit>
+	      <m:bvar><m:ci>f</m:ci></m:bvar>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:times/>
+		      <m:imaginaryi/>
+		      <m:cn>2</m:cn>
+		      <m:pi/>
+		      <m:ci>f</m:ci>
+		      <m:ci>m</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:plus/>
+		    <m:apply>
+		      <m:times/>
+		      <m:imaginaryi/>
+		      <m:pi/>
+		      <m:ci>f</m:ci>
+		      <m:ci>n</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:piecewise>
+	      <m:piece>
+		<m:cn>1</m:cn>
+		<m:apply>
+		  <m:eq/>
+		  <m:ci>m</m:ci>
+		  <m:ci>n</m:ci>
+		</m:apply>
+	      </m:piece>
+	      <m:piece>
+		<m:cn>0</m:cn>
+		<m:apply>
+		  <m:neq/>
+		  <m:ci>m</m:ci>
+		  <m:ci>n</m:ci>
+		</m:apply>
+	      </m:piece>
+	    </m:piecewise>
+	  </m:apply>
+	</m:math>
+      </equation>
+    </para>
+
+    <para id="p5">
+      Therefore, we find that
+
+      <equation id="eqn0013">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:int/>
+	      <m:bvar><m:ci>f</m:ci></m:bvar>
+	      <m:lowlimit>
+		<m:apply>
+		  <m:minus/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		</m:apply>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:cn>2</m:cn>
+		</m:apply>
+	      </m:uplimit>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:ci type="fn">S</m:ci>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:times/>
+		      <m:imaginaryi/>
+		      <m:cn>2</m:cn>
+		      <m:pi/>
+		      <m:ci>f</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:plus/>
+		    <m:apply>
+		      <m:times/>
+		      <m:imaginaryi/>
+		      <m:cn>2</m:cn>
+		      <m:pi/>
+		      <m:ci>f</m:ci>
+		      <m:ci>n</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:int/>
+	      <m:bvar><m:ci>f</m:ci></m:bvar>
+	      <m:lowlimit>
+		<m:apply>
+		  <m:minus/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		</m:apply>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:cn>2</m:cn>
+		</m:apply>
+	      </m:uplimit>
+	      <m:apply>
+		<m:sum/>
+		<m:bvar><m:ci>m</m:ci></m:bvar>
+		<m:domainofapplication><m:ci>m</m:ci></m:domainofapplication>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:ci type="fn">s</m:ci>
+		    <m:ci>m</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:times/>
+			<m:imaginaryi/>
+			<m:cn>2</m:cn>
+			<m:pi/>
+			<m:ci>f</m:ci>
+			<m:ci>m</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:plus/>
+		      <m:apply>
+			<m:times/>
+			<m:imaginaryi/>
+			<m:cn>2</m:cn>
+			<m:pi/>
+			<m:ci>f</m:ci>
+			<m:ci>n</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:sum/>
+	      <m:bvar><m:ci>m</m:ci></m:bvar>
+	      <m:domainofapplication><m:ci>m</m:ci></m:domainofapplication>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:ci type="fn">s</m:ci>
+		  <m:ci>m</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>f</m:ci></m:bvar>
+		  <m:lowlimit>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:divide/>
+			<m:cn>1</m:cn>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:apply>
+		      <m:divide/>
+		      <m:cn>1</m:cn>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:minus/>
+			<m:apply>
+			  <m:times/>
+			  <m:imaginaryi/>
+			  <m:cn>2</m:cn>
+			  <m:pi/>
+			  <m:ci>f</m:ci>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:minus/>
+			<m:ci>m</m:ci>
+			<m:ci>n</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:ci type="fn">s</m:ci>
+	      <m:ci>n</m:ci>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+    </para>
+
+    <para id="p6">
+      The Fourier transform pairs in discrete-time are 
+
+      <equation id="eqn0014a">
+	<title>Fourier Transform Pairs in Discrete Time</title>
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">S</m:ci>
+	      <m:apply>
+		<m:exp/>
+		<m:apply>
+		  <m:times/>
+		  <m:imaginaryi/>
+		  <m:cn>2</m:cn>
+		  <m:pi/>
+		  <m:ci>f</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:sum/>
+	      <m:bvar><m:ci>n</m:ci></m:bvar>
+	      <m:domainofapplication><m:ci>n</m:ci></m:domainofapplication>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:ci type="fn">s</m:ci>
+		  <m:ci>n</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:times/>
+		      <m:imaginaryi/>
+		      <m:cn>2</m:cn>
+		      <m:pi/>
+		      <m:ci>f</m:ci>
+		      <m:ci>n</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math> 
+      </equation>
+
+      <equation id="eqn0014b">
+	<title>Fourier Transform Pairs in Discrete Time</title>
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">s</m:ci>
+	      <m:ci>n</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:int/>
+	      <m:bvar><m:ci>f</m:ci></m:bvar>
+	      <m:lowlimit>
+		<m:apply>
+		  <m:minus/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		</m:apply>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:cn>2</m:cn>
+		</m:apply>
+	      </m:uplimit>
+	      <m:apply>
+	      <m:times/>
+		<m:apply>
+		  <m:ci type="fn">S</m:ci>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:times/>
+		      <m:imaginaryi/>
+		      <m:cn>2</m:cn>
+		      <m:pi/>
+		      <m:ci>f</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:plus/>
+		    <m:apply>
+		      <m:times/>
+		      <m:imaginaryi/>
+		      <m:cn>2</m:cn>
+		      <m:pi/>
+		      <m:ci>f</m:ci>
+		      <m:ci>n</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+    </para>
+
+  </content>
+</document>

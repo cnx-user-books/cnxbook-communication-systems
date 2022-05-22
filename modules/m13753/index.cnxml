@@ -1,0 +1,59 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Viewing Embedded LabVIEW Content</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>40197567-567b-4581-ad77-06037ff8e5b3</md:uuid>
+</metadata>
+
+<content>
+    
+<para id="para-01">
+In order to view LabVIEW content embedded in Connexions modules, you must install the LabVIEW Run-time Engine on your computer. The following are sets of instructions for installing the software on different platforms.
+</para>
+
+<para id="para-02">
+<note type="note" id="idp11093280">
+Embedded LabVIEW content is currently supported only under Windows 2000/XP. Also, you must have version 8.0.1 of the LabView Run-time Engine to run much of the embedded content in Connexions.
+</note>
+</para>
+
+<section id="sect-01">
+<title>Installing the LabVIEW Run-time Engine on Microsoft Windows 2000/XP</title>
+
+<list id="list-01" list-type="enumerated">
+<item>Point your web browser to the LabVIEW Run-time Engine download page at: <link url="http://digital.ni.com/softlib.nsf/websearch/077b51e8d15604bd8625711c006240e7">http://digital.ni.com/softlib.nsf/websearch/077b51e8d15604bd8625711c006240e7</link>.</item>
+<item>If you're not logged in to NI, click the link to continue the download process at the bottom of the page.</item>
+<item>Login or create a profile with NI to continue.</item>
+<item>Once logged in, click the <code>LabVIEW_8.0.1_Runtime_Engine.exe</code> link and save the file to disk.</item>
+<item>Once the file has downloaded, double click it and follow the steps to install the run-time engine.</item>
+<item>Download the LabVIEW Browser Plug-in at: <link url="http://zone.ni.com/devzone/conceptd.nsf/webmain/7DBFD404C6AD0B24862570BB0072F83B/$FILE/LVBrowserPlugin.ini">http://zone.ni.com/devzone/conceptd.nsf/webmain/7DBFD404C6AD0B24862570BB0072F83B/$FILE/LVBrowserPlugin.ini</link>.</item>
+<item>Put the <code>LVBrowserPlugin.ini</code> file in the <code>My Documents\LabVIEW Data</code> folder. (You may have to create this folder if it doesn't already exist.)</item>
+<item>Restart your web browser to complete the installation of the plug-in.</item>
+</list>
+
+</section>
+
+<!-- MAC OS NOT YET SUPPORTED
+<section id="sect-02">
+<name>Installing the LabVIEW Run-time Engine on Mac OS X</name>
+
+
+<para id="para-03">
+<note type="note">To run embedded LabVIEW content on a different platform, the content must have been compiled on the desired platform. Since much of the LabVIEW content in Connexions was compiled only on Windows, the majority of embedded VIs will not be viewable on a Mac.</note>
+</para>
+
+<list id="list-02" type="enumerated"><item>Point your web browser to the LabVIEW Run-time Engine download page at: <link src="http://digital.ni.com/softlib.nsf/websearch/3918bdc628bb65a68625711c0062bee4">http://digital.ni.com/softlib.nsf/websearch/3918bdc628bb65a68625711c0062bee4</link>.</item>
+<item>If you're not logged in to NI, click the link to continue the download process at the bottom of the page.</item>
+<item>Login or create a profile with NI to continue.</item>
+<item>Once logged in, click the <code>LabVIEW_8.0.1_Runtime_Engine.dmg</code> link and save the file to disk.</item>
+<item>Once the file has downloaded, double click it to mount the LabView Run-time Engine disk image.</item>
+<item>Double click the <code>LabVIEW80Runtime</code> application and follow the steps to install the run-time engine.</item>
+<item>Download the LabVIEW Browser Plug-in at: <link src="http://zone.ni.com/devzone/conceptd.nsf/webmain/7DBFD404C6AD0B24862570BB0072F83B/$FILE/LVBrowserPlugin.ini.zip">http://zone.ni.com/devzone/conceptd.nsf/webmain/7DBFD404C6AD0B24862570BB0072F83B/$FILE/LVBrowserPlugin.ini.zip</link>.</item>
+<item>Put the <code>LVBrowserPlugin.ini</code> file in the <code>Documents/LabVIEW Data</code> folder in your home directory. (You may have to create this folder if it doesn't already exist.)</item>
+<item>Restart your web browser to complete the installation of the plug-in.</item>
+</list>
+
+</section>
+-->
+
+</content>
+  
+</document>
